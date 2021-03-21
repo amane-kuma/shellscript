@@ -5,7 +5,7 @@ do
   aws lambda update-function-configuration --function-name shell-test --environment Variables={food=$line\,status=inkya}
   aws lambda invoke --function-name shell-test result.txt
   
-  #grep‚É$?‚Ì•Ï”‚ğQÆ‚·‚é‚±‚Æ‚ÅAgrepŒŸõ‚Éƒ}ƒbƒ`‚µ‚½‚©‚ğŠm”F‚·‚é
+  #grepæ™‚ã«$?ã®å¤‰æ•°ã‚’å‚ç…§ã™ã‚‹ã“ã¨ã§ã€grepæ¤œç´¢ã«ãƒãƒƒãƒã—ãŸã‹ã‚’ç¢ºèªã™ã‚‹
   grep 200 output.txt
   if [ $? = 0 ]; then
       echo "success"
