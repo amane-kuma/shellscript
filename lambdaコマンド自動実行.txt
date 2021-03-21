@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while read line
+do
+  aws lambda update-function-configuration --function-name shell-test --environment Variables={food=$line\,status=inkya}
+  aws lambda invoke --function-name shell-test result.txt
+  
+  #grep時に$?の変数を参照することで、grep検索にマッチしたかを確認する
+  grep 200 output.txt
+  if [ $? = 0 ]; then
+      echo "success"
+  else
+      echo "failed"  
+      break
+  fi
+done < line.txt
